@@ -16,9 +16,9 @@
 # @param env_vars
 #   Additional hash of environment variables for the container.
 # @param listen_address
-#   Address the container publishes its ports on. Defaults to loopback, so the
-#   service is reachable only through a proxy on the same host; set it to
-#   0.0.0.0 only when it genuinely has to be reachable from the network.
+#   Address the container publishes its ports on. Defaults to every interface,
+#   preserving previous behaviour; set it to 127.0.0.1 where a proxy on the same
+#   host fronts the service, so the S3 API is not reachable directly.
 #
 # @example Basic usage
 #   include rustfs
@@ -30,7 +30,7 @@ class rustfs (
   String[1]        $access_key     = lookup('rustfs::access_key'),
   String[1]        $secret_key     = lookup('rustfs::secret_key'),
   Hash             $env_vars       = {},
-  String[1]        $listen_address = '127.0.0.1',
+  String[1]        $listen_address = '0.0.0.0',
 ) {
   include docker
 
