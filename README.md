@@ -68,6 +68,7 @@ sudo chmod 755 /mnt/backups/rustfs
 | `rustfs::access_key` | `String[1]` | `"admin"` | S3 Access Key ID for authentication. |
 | `rustfs::secret_key` | `String[1]` | `"admin"` | S3 Secret Access Key for authentication (recommended via eyaml). |
 | `rustfs::env_vars` | `Hash` | `{}` | Additional environment variables passed to the RustFS container. |
+| `rustfs::listen_address` | `String[1]` | `"0.0.0.0"` | Address the container publishes its ports on. |
 
 ---
 
@@ -114,6 +115,7 @@ rustfs::access_key: 'my-backup-admin'
 rustfs::secret_key: 'ENC[PKCS7,MIIB7AYJKoZIhvcNAQcDoIIB3TCCAdkCAQAxggF7MIIBewIBADAFMAAC...]'
 rustfs::env_vars:
   RUSTFS_LOG: 'info'
+rustfs::listen_address: '0.0.0.0'
 ```
 
 ---

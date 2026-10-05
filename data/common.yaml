@@ -6,3 +6,4 @@ rustfs::data_dir: "/opt/rustfs/data"
 rustfs::access_key: "admin"
 rustfs::secret_key: "admin"
 rustfs::env_vars: {}
+rustfs::listen_address: "0.0.0.0"
